@@ -12,8 +12,6 @@ describe("Home", () => {
       name: "Home",
     });
 
-    console.log(heading);
-
     expect(heading).toBeInTheDocument();
   });
 });
