@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React from "react";
 
-import Layout from "../components/layout";
+import { Layout, Header } from "../components";
 
 import "../styles/globals.css";
 
@@ -11,9 +11,12 @@ export type NextApplicationPage<P = unknown, IP = P> = NextPage<P, IP> & {
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: { Component: NextApplicationPage; pageProps: any }): JSX.Element => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Header />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 
