@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/fra-malagisi/wallet/compare/v0.0.1...v0.0.2) (2022-03-03)
+
+
+### Features
+
+* add header logo ([ad3b12b](https://github.com/fra-malagisi/wallet/commit/ad3b12b6cdfe3ab466c87db4431cae0dfbd2bc79))
+* add next-auth ([82627e4](https://github.com/fra-malagisi/wallet/commit/82627e4ed9a2ebb85224586bf60005e13873d91a))
+
 ### 0.0.1 (2022-03-03)
 
 
