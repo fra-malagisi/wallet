@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { SessionProvider } from "next-auth/react";
 import React from "react";
 
 import { Layout, Header } from "../components";
@@ -11,12 +12,12 @@ export type NextApplicationPage<P = unknown, IP = P> = NextPage<P, IP> & {
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: { Component: NextApplicationPage; pageProps: any }): JSX.Element => {
   return (
-    <>
+    <SessionProvider session={session}>
       <Header />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </SessionProvider>
   );
 };
 
