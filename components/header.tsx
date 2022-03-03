@@ -8,7 +8,8 @@ const Header: FC<unknown> = () => {
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
-              <span className="sr-only">Workflow</span>
+              <span className="sr-only">Wallet</span>
+              <Image src="/wallet.svg" alt="wallet logo" width="50" height="50" />
             </a>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
