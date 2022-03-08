@@ -6,7 +6,7 @@ import clientPromise from "../../../lib/mongodb";
 
 export default NextAuth({
   session: {
-    jwt: true,
+    strategy: "jwt",
   },
   // Configure one or more authentication providers
   providers: [
@@ -16,4 +16,9 @@ export default NextAuth({
     }),
   ],
   adapter: MongoDBAdapter(clientPromise),
+  callbacks: {
+    async session({ session, user, token }) {
+      return session;
+    },
+  },
 });

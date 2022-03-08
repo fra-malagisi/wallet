@@ -10,6 +10,8 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "@headlessui/react": "^1.5.0",
+    "@heroicons/react": "^1.0.6",
     "@next-auth/mongodb-adapter": "^1.0.1",
     "mongodb": "^4.4.0",
     "mongoose": "^6.2.4",
