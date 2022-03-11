@@ -1,3 +1,4 @@
+import { NextUIProvider } from "@nextui-org/react";
 import { NextPage } from "next";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
@@ -13,10 +14,12 @@ export type NextApplicationPage<P = unknown, IP = P> = NextPage<P, IP> & {
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: { Component: NextApplicationPage; pageProps: any }): JSX.Element => {
   return (
     <SessionProvider session={session}>
-      <Header />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <NextUIProvider>
+        <Header />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </NextUIProvider>
     </SessionProvider>
   );
 };
