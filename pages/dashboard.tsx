@@ -7,7 +7,7 @@ const Dashboard: FC<unknown> = () => {
   return (
     <div>
       Dashboard
-      <Accordion />
+      <Accordion text="salary" content={<h2>Salary</h2>} />
     </div>
   );
 };

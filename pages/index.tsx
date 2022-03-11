@@ -1,4 +1,3 @@
-import { getSession } from "next-auth/react";
 import { FC } from "react";
 
 const Home: FC<unknown> = () => {
