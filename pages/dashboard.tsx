@@ -1,7 +1,8 @@
+import axios from "axios";
 import { getSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { AccordionProps } from "../components/accordion";
 
@@ -23,6 +24,14 @@ const Dashboard: FC<unknown> = () => {
       },
     ],
   });
+
+  useEffect(() => {
+    const serverCall = async () => {
+      await axios.post("/api/data", {});
+    };
+    serverCall();
+  });
+
   return (
     <>
       <Head>
