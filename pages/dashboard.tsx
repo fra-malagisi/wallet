@@ -3,27 +3,12 @@ import { getSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import React, { FC, useEffect, useState } from "react";
+import { Upload } from "../components";
 
 import { AccordionProps } from "../components/accordion";
 
 const Dashboard: FC<unknown> = () => {
-  const Accordion = dynamic(() => import("../components/accordion"), { ssr: false });
-
-  const [accordionsConfig] = useState<AccordionProps>({
-    split: true,
-    accordions: [
-      {
-        id: "salary",
-        title: "Salary",
-        content: <h2>Salary</h2>,
-      },
-      {
-        id: "crypto",
-        title: "Crypto",
-        content: <h2>Crypto</h2>,
-      },
-    ],
-  });
+  // const Accordion = dynamic(() => import("../components/accordion"), { ssr: false });
 
   useEffect(() => {
     const serverCall = async () => {
@@ -38,7 +23,9 @@ const Dashboard: FC<unknown> = () => {
         <title>Dashboard</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Accordion split={accordionsConfig.split} accordions={accordionsConfig.accordions} />
+      <div className="flex justify-center">
+        <Upload label="Choose a csv file:" />
+      </div>
     </>
   );
 };
