@@ -1,21 +1,16 @@
 import axios from "axios";
 import { getSession } from "next-auth/react";
+import * as dfd from "danfojs";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React, { FC, useEffect, useState } from "react";
-import { Upload } from "../components";
-
-import { AccordionProps } from "../components/accordion";
+import React, { FC, useEffect } from "react";
 
 const Dashboard: FC<unknown> = () => {
-  // const Accordion = dynamic(() => import("../components/accordion"), { ssr: false });
+  const Upload = dynamic(() => import("../components/upload"), { ssr: false });
 
-  useEffect(() => {
-    const serverCall = async () => {
-      await axios.post("/api/data", {});
-    };
-    serverCall();
-  });
+  const readCsv = (file: File) => {
+    dfd.readCSV(file).then((df) => df.print());
+  };
 
   return (
     <>
@@ -24,7 +19,7 @@ const Dashboard: FC<unknown> = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="flex justify-center">
-        <Upload label="Choose a csv file:" />
+        <Upload label="Choose a csv file:" onChange={(evt) => readCsv(evt.target.files[0])} />
       </div>
     </>
   );
